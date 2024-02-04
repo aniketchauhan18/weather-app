@@ -58,57 +58,49 @@ const WeatherComponent = () => {
     const weatherDetails = list.weather[0].description
     const visibility = list.visibility;
 
-
     if (index <=0) {
       return (
-        <div key={index} className='flex flex-col justify-center bg-white p-4 rounded-lg m-10 w-full  text-2xl'>
-          {/* <div className='flex gap-3 p-3'>
-            <div className='text-sm'>
-              {date}
-            </div>
-            <div className='text-sm'>
-              {time}
-            </div>
-          </div> */}
-          <div className='flex gap-3 justify-center items-center flex-col'>
-            <div className='text-9xl'>
-              {temperature} °C
-            </div>
-            <div className='text-4xl'>
-              {weatherDetails}
-            </div>
+        <div className='flex text-4xl mt-10 gap-20 min-w-screens' key={index}>
+          <div className='flex justify-center items-center text-9xl'>
+            {temperature}°C
           </div>
-
-          <div className='shadow mt-24 p-8 flex  text-4xl gap-10'>
-            <div className='flex justify-center items-center'>
-              <div className='text-4xl'>
-                <WiHumidity />
-              </div>
-              <div>
-                {humidity}
-              </div>
-            </div>
-            <div className='flex justify-center items-center'>
-              <div className='text-4xl'>
-                <FiWind />
-              </div>
-              <div>
-                {windSpeed}
+          <div className='flex flex-col shadow rounded-lg p-10 gap-10'>
+            <div className='flex'>
+              <div className='flex justify-center items-center gap-2'>
+                <div className='text-4xl'>
+                  <WiHumidity />
+                </div>
+                <div>
+                  {humidity}
+                </div>
               </div>
             </div>
-            <div className='flex justify-center items-center ga-'>
-              <div className='text-4xl'>
-                <MdVisibility/>
+            <div className='flex'>
+              <div className='flex justify-center items-center gap-2'>
+                <div className='text-4xl'>
+                  <FiWind />
+                </div>
+                <div>
+                  {windSpeed} mph
+                </div>
               </div>
-              <div>
-                {visibility}
+            </div>
+            <div className='flex'>
+              <div className='flex justify-center items-center gap-2'>
+                <div className='text-4xl'>
+                  <MdVisibility/>
+                </div>
+                <div>
+                  {visibility}
+                </div>
               </div>
             </div>
           </div>
         </div>
       )
     }
-    
+
+
   })
 
 
@@ -116,17 +108,13 @@ const WeatherComponent = () => {
 
 
   return (
-    <div className='text-zinc-600 rounded-sm justify-center items-center flex flex-col'>
+    <div className='text-zinc-600 rounded-sm justify-center items-center flex flex-col min-w-screen'>
       <div className='text-8xl flex justify-center p-4'>
           {cityName}
         </div>
-      <div className=' flex justify-center items-center'>
-        <div className='flex'>
-          {mappedListOfData}  
-        </div>
+      <div className=' flex '>
+        {mappedListOfData}
       </div>
-      
-      
     </div>
   );
 };
