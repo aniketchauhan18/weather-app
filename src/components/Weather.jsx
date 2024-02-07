@@ -54,17 +54,22 @@ const WeatherComponent = () => {
     let time = list.dt_txt.slice(10,);
     const temperature = Math.round(list.main.temp - 273.16);
     const humidity = list.main.humidity;
-    const windSpeed = list.wind.speed
-    const weatherDetails = list.weather[0].description
+    const windSpeed = list.wind.speed;
+    const weatherDetails = list.weather[0].description;
     const visibility = list.visibility;
 
     if (index <=0) {
       return (
-        <div className='flex text-4xl mt-10 gap-20 min-w-screens' key={index}>
-          <div className='flex justify-center items-center text-9xl'>
-            {temperature}°C
+        <div className='flex text-4xl mt-10 gap-40 w-full  justify-center' key={index}>
+          <div className='flex justify-center items-center flex-col'>
+            <div className='flex justify-center items-center text-9xl'>
+              {temperature}°C
+            </div>
+            <div className='flex justify-center items-center text-2xl bg-blue-900 text-white px-6 py-2 rounded-lg'>
+              {weatherDetails}
+            </div>
           </div>
-          <div className='flex flex-col shadow rounded-lg p-10 gap-10'>
+          <div className='flex flex-col text-gray-900 bg-gray-300 rounded-lg p-10 gap-10 text-6xl'>
             <div className='flex'>
               <div className='flex justify-center items-center gap-2'>
                 <div className='text-4xl'>
@@ -103,16 +108,12 @@ const WeatherComponent = () => {
 
   })
 
-
-
-
-
   return (
-    <div className='text-zinc-600 rounded-sm justify-center items-center flex flex-col min-w-screen'>
-      <div className='text-8xl flex justify-center p-4'>
+    <div className='text-white rounded-sm justify-center items-center flex flex-col w-full'>
+      <div className='text-8xl flex justify-center bg-blue-900 rounded-lg mt-10 text-white px-12 py-4'>
           {cityName}
         </div>
-      <div className=' flex '>
+      <div className=' flex w-full  justify-center'>
         {mappedListOfData}
       </div>
     </div>
